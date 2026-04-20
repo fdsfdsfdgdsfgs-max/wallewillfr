@@ -1,0 +1,1622 @@
+<html><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,900|PT+Sans+Narrow|Yantramanav:400,900|Roboto:900,400|Bangers|Krona+One|Nunito:400,900|Frank+Ruhl+Libre:400,900|Oswald:400,900|Source+Serif+Pro|Work+Sans:400,900|Open+Sans|Raleway|Lato|Passion+One|Lateef|Crimson+Text|Baloo+Paaji+2|Jost|Oswald|Montserrat|Lexend+Deca|Bungee+Shade|Rubik|Inter:400,900|Bebas+Neue|Syncopate:400,700|VT323:400,900|Poppins:400,900|Fredoka+One:400,900|Staatliches:400,900|Redacted+Script:400,900|Rubik+Pixels:400,900|Cute+Font:400,900|Kosugi+Maru:400,900|Darumadrop+One:400,900|Kaisei+Decol:400,900|Playfair+Display:400,900|Rubik+Doodle+Shadow:400,900|Shadows+Into+Light:400,900|M+PLUS+1:400,900|Zeyada:400,900|Rock+Salt:400,900|Leckerli+One:400,900|Space+Mono:400,900|Finger+Paint:400,900|EB+Garamond:400,700" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.4.1/lib/p5.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/konva@8.3.2/konva.min.js"></script>
+  <link href="https://straw.page/min/?g=els&amp;n=2821" rel="stylesheet">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://straw.page/apple-touch-icon.png?v=4">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://straw.page/favicon-32x32.png?v=4">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://straw.page/favicon-16x16.png?v=4">
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" data-cf-beacon="H6d3izaPoQq_h8s3g0nYJio18z5m8ehwvFHy_NmdXK24Ek_wAKxHvh4qTLTyNgB2axZkL8znWya1e9AbGFzsZFPRwcax_ALHzzXo3XYZcmdDW9PTyG8Wf7xYmujCPYuNk96dM8ADjR1_qURQxt61CHn1zjwyp6M2jtE2G-Ti56p_TVhQkQ5m-bFjTqLNV3vikUEf8Pt6Jzlnb64HUWwi6geV6-Bs1bPl"></script>
+  <script defer="" src="https://notebook.straw.page" data-website-id="70918031-9a84-4c96-90d3-ffa75284b781"></script>
+  <meta property="twitter:title" content="wallewill's strawpage">
+  <meta property="twitter:description" content="wallewill's strawpage">
+  <meta property="og:image" content="https://strawcdn.com/capture/pics/wallewill.straw.page.jpg?v=1985">
+  <meta name="twitter:title" content="wallewill's strawpage">
+  <meta name="twitter:description" content="Made with StrawPage">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://strawcdn.com/capture/pics/wallewill.straw.page.jpg?v=9159">
+  <meta name="straw:user" content="wallewill">
+  <style>
+    * {
+      outline: 0;
+      margin: 0;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+    }
+
+    html {
+      -webkit-text-size-adjust: 100%;
+    }
+
+    a,
+    a:link,
+    a:visited,
+    .a:hover,
+    .a:focus,
+    a:active {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    body {
+      overflow-x: hidden;
+      background: var(--b);
+      --b: #fff;
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
+      --mw: 600;
+    }
+
+    .first {
+      font-family: 'Yantramanav';
+      --p: #df001d;
+      --g: 32px;
+      --gs: 2.73438em;
+      --extra: 1;
+      background-size: cover;
+      background-position: center;
+      background-attachment: scroll;
+      overflow-x: hidden;
+      overflow-y: hidden
+    }
+
+    .content {
+      margin: 0 auto;
+      /* min-height: calc(200vh + calc(1rem * calc(var(--extra) * var(--g)))); */
+      width: 100%;
+      max-width: calc(1px * var(--mw));
+      position: relative;
+      font-size: min(16px, 16 * (100vw / var(--mw)));
+      min-height: 100vh;
+    }
+
+    .element:hover {
+      cursor: auto
+    }
+
+    .element[data-type=text] * {
+      -webkit-user-drag: auto;
+      -khtml-user-drag: auto;
+      -moz-user-drag: auto;
+      -o-user-drag: auto;
+      user-drag: auto;
+      -khtml-user-select: auto;
+      -o-user-select: auto;
+      -moz-user-select: auto;
+      -webkit-user-select: auto;
+      user-select: auto;
+    }
+
+    .element {
+      transition: transform 0.3s ease
+    }
+
+    .content a .element:hover,
+    .element[data-scrollto]:hover {
+      transform: rotate(calc(1deg*var(--r))) scale(calc(var(--s) * 1.05));
+      cursor: pointer
+    }
+
+    .content a .element:hover button {
+      cursor: pointer
+    }
+
+    .element:not([data-type=wordart]) p {
+      -webkit-transform: translate3d(0, 0, 0)
+    }
+
+    .branding {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      display: flex;
+      align-items: center;
+      filter: drop-shadow(0 1px 5px rgba(0, 0, 0, .4));
+      background: #df001d;
+      z-index: 9999999999999999;
+      transition: all 0.3s ease;
+      transform: none
+    }
+
+    .branding img {
+      height: 40px;
+      width: 40px;
+      margin-bottom: 0;
+      padding: 2px
+    }
+
+    .brandingContent {
+      display: none
+    }
+
+    .brandingContent p {
+      margin: 0;
+      font-family: 'Yantramanav';
+      color: #fff;
+      font-size: 16px;
+      padding: 0 8px
+    }
+
+    .branding:hover {
+      transform: scale(1.1);
+      cursor: pointer
+    }
+
+    @media(min-width: 5px) {
+      .brandingContent {
+        display: block !important
+      }
+    }
+
+    .inst {
+      --scaler: 1.2
+    }
+
+    .inst.fb {
+      --scaler: 1.15
+    }
+
+    .inst .element[data-type=text] .el_content,
+    .inst .element[data-type=icon] .el_content,
+    .inst .element[data-type=button] button {
+      font-size: calc(1em * calc(var(--ts) / var(--scaler)));
+    }
+
+    .element[data-type=embed] iframe {
+      pointer-events: all
+    }
+
+    .element[data-type=image]:not([data-link]):not([data-scrollto]),
+    .element[data-type=icon]:not([data-link]):not([data-scrollto]),
+    .element[data-type=shape]:not([data-link]):not([data-scrollto]) {
+      pointer-events: none
+    }
+
+    .element[data-type=text]:not([data-link]):not([data-scrollable]):not([data-scrollto]) {
+      pointer-events: none
+    }
+
+    .element[data-type=text]:not([data-link]):not([data-scrollto]) * {
+      pointer-events: all
+    }
+
+    .element[data-type=icon][data-link] {
+      pointer-events: none
+    }
+
+    .element[data-type=icon][data-link] i {
+      pointer-events: all
+    }
+
+    .element[data-type=paint] {
+      pointer-events: none
+    }
+
+    .element[data-type=paint] g {
+      pointer-events: all
+    }
+
+    /*	GIMMICKS	*/
+    .element[data-type=gimmick-canvas] {
+      border: 0.15em solid var(--co);
+      --co: #df001d;
+      --ts: 1;
+      border-radius: 5px;
+      transform: rotate(calc(1deg*var(--r)))
+    }
+
+    .element[data-type=gimmick-canvas] .innerCanvas {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      flex-direction: column
+    }
+
+    .element[data-type=gimmick-canvas] .toolbox {
+      margin: 0 0 0 auto;
+      background: #fff;
+      padding: 0.4em 0.6em;
+      color: var(--co);
+      display: inline-flex;
+      font-size: calc(1em * var(--ts));
+      position: absolute;
+      top: -0em;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      border: 0.15em solid var(--co);
+      border-radius: calc(5px / 2);
+      align-items: center;
+      max-width: 100%
+    }
+
+    .element[data-type=gimmick-canvas] .toolbox i {
+      padding: 0 0.4em;
+      font-size: 1.1em;
+    }
+
+    .element[data-type=gimmick-canvas] .picasso {
+      background: #fff;
+      flex: 1;
+      border-radius: calc(5px / 2);
+      overflow: hidden;
+      position: relative
+    }
+
+    .element[data-type=gimmick-canvas] .picasso canvas {
+      height: 100%;
+      width: 100%
+    }
+
+    .element[data-type=gimmick-canvas] .sendPicasso {
+      padding: 0em;
+    }
+
+    .element[data-type=gimmick-canvas] .sendPicasso button {
+      -webkit-appearance: none;
+      appearance: none;
+      background: #fff;
+      color: var(--co);
+      text-align: center;
+      border: 0;
+      border-top: 0.15em solid var(--co);
+      width: 100%;
+      padding: 0.5em 0.2em;
+      font-family: 'Yantramanav';
+      font-size: 1.1em;
+      border-bottom-left-radius: calc(5px / 2);
+      border-bottom-right-radius: calc(5px / 2);
+      transition: all 0.3s ease
+    }
+
+    .element[data-type=gimmick-canvas] .sendPicasso button:hover {
+      background: var(--co);
+      color: #fff;
+      cursor: pointer
+    }
+
+    .element[data-type=gimmick-ama] .askerSend button:hover {
+      background: var(--co);
+      color: #fff;
+      cursor: pointer
+    }
+
+    .element[data-type=gimmick-ama] .askExtra {
+      position: relative;
+      transition: all 0.3s ease
+    }
+
+    .element[data-type=gimmick-ama] .askExtra img {
+      height: 1.875em;
+      width: 1.875em;
+      position: absolute;
+      left: calc(50% - 4px);
+      top: 50%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      object-position: center
+    }
+
+    .element[data-type=gimmick-ama] .askExtra:hover {
+      opacity: 0.5;
+      cursor: pointer
+    }
+
+    .element[data-type=gimmick-canvas] .canvCol {
+      height: 1.1em;
+      width: 1.1em;
+      border-radius: 50%;
+      margin: 0 0.4em;
+      background: conic-gradient(from 0deg at 50% 50%, rgba(255, 0, 0, 1) 0%, rgba(255, 154, 0, 1) 10%, rgba(208, 222, 33, 1) 20%, rgba(79, 220, 74, 1) 30%, rgba(63, 218, 216, 1) 40%, rgba(47, 201, 226, 1) 50%, rgba(28, 127, 238, 1) 60%, rgba(95, 21, 242, 1) 70%, rgba(186, 12, 248, 1) 80%, rgba(251, 7, 217, 1) 90%, rgba(255, 0, 0, 1) 100%);
+    }
+
+    .element[data-type=gimmick-canvas] [type=color] {
+      visibility: hidden;
+      position: absolute;
+    }
+
+    .canvSizing {
+      display: flex;
+      align-items: center
+    }
+
+    .element[data-type=gimmick-canvas] [type=range] {
+      border: 0;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      height: 5px;
+      width: 3em;
+      background: var(--co);
+      border-radius: 40px;
+      border: 1px solid var(--co);
+      background: 0;
+      margin: 0 0.5rem
+    }
+
+    .element[data-type=gimmick-canvas] [type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      background: var(--co);
+      height: 15px;
+      width: 15px;
+      border: 2px solid var(--co);
+      border-radius: 40px
+    }
+
+    .element[data-type=gimmick-canvas].doneArt,
+    .element[data-type=gimmick-ama].doneArt {
+      pointer-events: none;
+    }
+
+    .jfr .element,
+    .jfr .element * {
+      pointer-events: all !important
+    }
+
+    @media(max-width: 385px) {
+      .element[data-type=gimmick-canvas] [type=range]::-webkit-slider-thumb {
+        height: 12px;
+        width: 12px;
+      }
+    }
+
+    .element[data-type=image] img {
+      width: calc(100% * var(--s));
+      height: calc(100% * var(--s));
+      transform: scale(calc(1 / var(--s))) translateZ(0);
+    }
+
+    @-moz-document url-prefix() {
+      .element[data-type=image] img {
+        min-height: calc(100% * var(--s));
+        min-width: calc(100% * var(--s));
+      }
+    }
+
+    .element[data-type=majorityvote] .innerTalking p:not(.activeTalk) {
+      display: none
+    }
+
+    .element[data-type=majorityvote] .innerTalking:hover {
+      cursor: pointer
+    }
+
+    .element.disableTmp {
+      pointer-events: none
+    }
+
+    .completionCasso {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      background: var(--co);
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      display: flex;
+      transition: opacity 0.3s ease
+    }
+
+    .completionCasso button {
+      -webkit-appearance: none;
+      appearance: none;
+      background: #fff;
+      color: var(--co);
+      border: 1px solid #fff;
+      font-family: 'Yantramanav';
+      font-size: 1em;
+      padding: 0.3em 0.8em;
+      transition: all 0.3s ease
+    }
+
+    .completionCasso p {
+      max-width: 80%;
+      color: #fff;
+      text-align: center;
+      font-size: 0.8em;
+    }
+
+    .completionCasso button:hover {
+      transform: scale(1.1);
+      cursor: pointer
+    }
+
+    .element[data-type=gimmick-canvas].doneArt .completionCasso {
+      pointer-events: all;
+      opacity: 1;
+    }
+
+    .element[data-sound] {
+      pointer-events: all !important
+    }
+
+    .element[data-sound]:hover {
+      cursor: pointer
+    }
+
+    .element[data-type=spotify]:hover .imgWrap i {
+      transform: translate(-50%, -50%) scale(1.1)
+    }
+
+    .cursorMode .cursorReal {
+      background-image: var(--cu);
+      height: 32px;
+      width: 32px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: fixed;
+      top: 100px;
+      left: 100px;
+      z-index: 999999999999999999999;
+      pointer-events: none;
+    }
+
+    .cursorMode,
+    .cursorMode * {
+      cursor: none !important
+    }
+
+    .spotSearch {
+      background: #18181b;
+      max-height: 270px;
+      position: fixed;
+      bottom: -120vh;
+      left: 0;
+      right: 0;
+      max-width: 420px;
+      margin: 0 auto;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
+      padding: 15px;
+      height: 100%;
+      opacity: 0;
+      transition: bottom 0.3s ease
+    }
+
+    .spotSearch.bringUp {
+      bottom: 0;
+      opacity: 1;
+    }
+
+    .spotSearch .closer {
+      background: #000;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translate(-50%, -100%);
+      color: #fff;
+      height: 30px;
+      width: 40px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .spotSearch .closer:hover {
+      opacity: 0.8;
+      cursor: pointer
+    }
+
+    .innerSpotSearch {
+      overflow-y: scroll;
+      height: 100%
+    }
+
+    .searchWrap {
+      position: sticky;
+      top: 0px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-gap: 10px;
+      color: #8d8d8f;
+      background: #27272a;
+      border-radius: 40px;
+      overflow: hidden
+    }
+
+    .searchWrap input {
+      background: #27272a;
+      width: 100%;
+      font-family: 'Yantramanav';
+      padding: 8px 8px;
+      border: 0;
+      font-size: 14px;
+      color: #fff
+    }
+
+    .searchWrap input::placeholder {
+      color: #8d8d8f
+    }
+
+    .searchWrap i {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding-left: 14px;
+      font-size: 13px;
+    }
+
+    .spotResults {
+      padding: 20px 0;
+      display: grid;
+      grid-gap: 10px
+    }
+
+    .spotItem {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-gap: 20px;
+      color: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      transition: all 0.3s ease
+    }
+
+    .spotItem:hover {
+      background: rgba(255, 255, 255, 0.05);
+      cursor: pointer
+    }
+
+    .spotItem img {
+      height: 30px;
+      width: 30px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 6px;
+    }
+
+    .spotMeta {
+      color: #cfcfd3;
+      display: grid;
+      grid-gap: 4px;
+    }
+
+    .spotMeta h5 {
+      font-size: 13px;
+      color: #fff
+    }
+
+    .spotMeta p {
+      font-size: 13px;
+    }
+
+    .spotMeta i {
+      font-size: 12px;
+      padding-right: 4px
+    }
+
+    .spotActions {
+      display: flex;
+      align-items: center
+    }
+
+    .spotActions i {
+      padding: 4px;
+      font-size: 13px;
+    }
+
+    .followingDon {
+      transition: all 0.3s ease
+    }
+
+    .followingDon:hover {
+      opacity: 0.5;
+      cursor: pointer
+    }
+
+    .element[data-type=windowsplayer] input[type=range] {
+      -webkit-appearance: none;
+      width: 100%;
+      background: transparent;
+      font-size: 1em
+    }
+
+    .element[data-type=windowsplayer] input[type=range]::-webkit-slider-runnable-track {
+      width: 100%;
+      height: .25em;
+      background: #9b9a99;
+      border-radius: 6.25em;
+      box-shadow: inset .0625em .0625em #000, inset -.0625em -.0625em #9b9a99;
+    }
+
+    .element[data-type=windowsplayer] input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: .625em;
+      height: 1em;
+      background: #9b9a99;
+      box-shadow: inset .0625em .0625em #9b9a99, inset -.0625em -.0625em #000, inset .125em .125em #9b9a99, inset -.125em -.125em #000;
+      margin-top: -.375em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .memeInp {
+      justify-content: flex-end
+    }
+
+    .ff .element[data-type=image] img {
+      background-color: transparent
+    }
+
+    .element[data-type=image][data-link="#"] img {
+      pointer-events: all
+    }
+
+    .colorPicker {
+      position: absolute;
+      top: 200px;
+      left: 200px;
+      height: 170px;
+      width: 150px;
+      border: 2px solid #df001d;
+      background: #fff;
+      z-index: 99999;
+      transform: translate(50%, 0%);
+      display: none;
+      grid-template-rows: auto 1fr auto;
+      touch-action: none;
+    }
+
+    .closeColorPicker {
+      -webkit-appearance: none;
+      appearance: none;
+      background: #fff;
+      border: 0;
+      color: #df001d;
+      border-bottom: 2px solid #df001d;
+      transition: all 0.3s ease;
+    }
+
+    .closeColorPicker:hover {
+      background: #df001d;
+      color: #fff;
+      cursor: pointer
+    }
+
+    .colorBox {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      overflow: hidden
+    }
+
+    .colorHighlight {
+      width: 12px;
+      height: 12px;
+      box-shadow: inset 0 0 0 2px #fff;
+      border-radius: 50%;
+      position: absolute;
+      top: 40px;
+      left: 40px;
+      background: 0;
+      transform: translate(-50%, -50%);
+      pointer-events: none
+    }
+
+    .hueSliderWrap {
+      padding: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .hueSlider {
+      width: 100%;
+      height: 10px;
+      appearance: none;
+      -webkit-appearance: none;
+      background: linear-gradient(to right, red, yellow, lime, cyan, blue, magenta, red);
+      border: none;
+      border-radius: 0;
+      cursor: pointer;
+      border-radius: 40px
+    }
+
+    .hueSlider::-webkit-slider-thumb {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      background: #fff;
+      box-shadow: 0 0 0 1px #e6e6e6;
+      border-radius: 50%;
+    }
+
+    .hueSlider::-moz-range-thumb {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 50%;
+    }
+  </style>
+  <title>wallewill's strawpage</title>
+</head>
+
+<body style="--g: 2.734375; --b: url(https://files.strawcdn.com/straw/gwrggneiEKoIIsjiteUb.png); background-attachment: scroll; --mw: 700;" class="ff">
+  <div class="first" style="--g: 2.734375;">
+    <div class="content" style="height: 1970px;">
+      <div class="element" style="--x: 1; --y: 1; --w: 14; --h: 1; --r: 0; --s: 1; --bc: #fef1f3; --bos: 0.06; --boc: #cecdc6;" data-uid="kbiyunzrjk" data-type="shape">
+        <div class="innerShape">
+          <!--?xml version="1.0" encoding="UTF-8"?--> <svg xmlns="http://www.w3.org/2000/svg" width="1200pt" height="1200pt" version="1.1" viewBox="120,120,960,960" preserveAspectRatio="none" style="--ns: 0;">
+            <path xmlns="http://www.w3.org/2000/svg" d="m120 120h960v960h-960z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="element" style="--ts: 1.1; --x: 3.9475; --y: 1.042142857142857; --w: 5.75; --h: 0.8333333333333334; --r: 0; --s: 2.35; --ta: left; --px: 0.8; --co: #36a139; --f: VT323;" data-fun-markoui="normal" data-fun-text="He copied my youtube banner" data-uid="kkadjmsdhp" data-type="text">
+        <div class="el_content">
+          <p>He copied my youtube banner</p>
+        </div>
+      </div>
+      <div class="element" style="--x: 1; --y: 1.9466666666666668; --w: 14; --h: 40.53333333333333; --r: 0; --s: 1; --bos: 0.06; --boc: #cecdc6; --bc: #ffffff;" data-lock="true" data-uid="znvupwhnpw" data-type="shape">
+        <div class="innerShape">
+          <!--?xml version="1.0" encoding="UTF-8"?--> <svg xmlns="http://www.w3.org/2000/svg" width="1200pt" height="1200pt" version="1.1" viewBox="109.19999694824219,121.19999694824219,970.7999877929688,970.7999877929688" preserveAspectRatio="none" style="--ns: 0;">
+            <path xmlns="http://www.w3.org/2000/svg" d="m109.2 121.2h970.8v970.8h-970.8z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="element" style="--x: 1.5033333333333334; --y: 4.2; --w: 4; --h: 4; --r: 0; --s: 1; --bos: 0.06; --boc: #cecdc6;" data-uid="wkyaffvwjg" data-type="image"><img src="https://files.strawcdn.com/straw/cXkqqSCGNrGUjVfPlrWR.png" draggable="false" loading="lazy"></div>
+      <div class="element" style="--x: 1.475; --y: 2.5866666666666664; --w: 13.05; --h: 1.65; --r: 0; --s: 1; --bc: #fef1f3; --bos: 0.06; --boc: #cecdc6;" data-uid="vaneggyone" data-type="shape">
+        <div class="innerShape">
+          <!--?xml version="1.0" encoding="UTF-8"?--> <svg xmlns="http://www.w3.org/2000/svg" width="1200pt" height="1200pt" version="1.1" viewBox="120,120,960,960" preserveAspectRatio="none" style="--ns: 0;">
+            <path xmlns="http://www.w3.org/2000/svg" d="m120 120h960v960h-960z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="element" style="--ts: 1.5; --f: Darling Coffee; --co: #36a139; --x: 8.0075; --y: 2.7464285714285714; --w: 5.523928571428572; --h: 0.9792857142857143; --r: 0; --s: 1.7; --ta: left;" data-uid="swlvzpaelb" data-type="text">
+        <div class="el_content">
+          <p>AUTISTIC</p>
+        </div>
+      </div>
+      <div class="element" style="--ts: 1; --f: VT323; --co: #36a139; --x: 1.48; --y: 8.133333333333333; --w: 4; --h: 1; --r: 0; --s: 1; --bc: #fef1f3; --bos: 0.05; --boc: #cecdc6;" data-fun-markoui="normal" data-fun-text="Me" data-uid="whslioaazf" data-type="text">
+        <div class="el_content">
+          <p>Me</p>
+        </div>
+      </div>
+      <div class="element" style="--x: 10; --y: 10.946666666666667; --w: 2; --h: 2; --r: 0; --s: 1;" data-sound="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/a0/a2/b2/a0a2b274-3607-4396-36ae-41af0ceeab6b/mzaf_11257678746543455359.plus.aac.p.m4a" data-uid="cyffgzxwha" data-type="spotify">
+        <div class="innerSpotify">
+          <div class="imgWrap"><i class="fas fa-play"></i><img src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/3d/9d/38/3d9d3811-71f0-3a0e-1ada-3004e56ff852/827969428726.jpg/200x200bb.jpg"></div>
+          <h5>Leave Me Alone</h5>
+          <p><i class="fab fa-spotify"></i>Michael Jackson</p>
+        </div>
+      </div>
+      <div class="element" style="--x: 7.698928571428572; --y: 10.96; --w: 2; --h: 2; --r: 0; --s: 1;" data-sound="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/22/a2/ee/22a2ee65-935f-8571-a38b-39b4bac5f89d/mzaf_9406659164773684708.plus.aac.p.m4a" data-uid="gohtpjbcrk" data-type="spotify">
+        <div class="innerSpotify">
+          <div class="imgWrap"><i class="fas fa-play"></i><img src="https://is1-ssl.mzstatic.com/image/thumb/Music125/v4/2f/aa/1a/2faa1a3f-7545-f517-1fb9-295fa2800c4b/811576034623.png/200x200bb.jpg"></div>
+          <h5>Attack of the Killer Queen (feat. Lena Raine &amp; Marcy Nabors)</h5>
+          <p><i class="fab fa-spotify"></i>Toby Fox</p>
+        </div>
+      </div>
+      <div class="element" data-image="contain" style="--x: 13.066666666666666; --y: 2.9466666666666668; --w: 1; --h: 1; --r: 0; --s: 1;" data-uid="welbcqerum" data-type="image"><img src="https://media.tenor.com/uvs84qLH_l8AAAAi/nahh-nah.gif" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 3.066666666666667; --y: 2.8133333333333335; --w: 1.12; --h: 1.1333333333333333; --r: 0; --s: 1;" data-uid="dzjarxygaw" data-type="image"><img src="https://files.strawcdn.com/straw/aRZTxOVSwJbOVSgFLMfp.png" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 1.8266666666666667; --y: 2.88; --w: 1; --h: 1; --r: 0; --s: 1;" data-uid="iyckcyrdce" data-type="image"><img src="https://files.strawcdn.com/straw/oRMKMYbtmnUQpWiAMwxj.png" draggable="false" loading="lazy"></div>
+      <div class="element" style="--y: 0.6435714285714286; --x: -2.1885714285714286; --r: 0; --s: 1;" data-uid="kvvnkwufrs" data-type="paint"><svg style="--ns: 0;">
+          <!--?xml version="1.0" encoding="UTF-8"?--> <svg xmlns="http://www.w3.org/2000/svg" style="--ns: 0;">
+            <g>
+              <path fill="#cb416b" d="M 392.53981060272474 148.71484375 Q 392.53981060272474 148.71484375 392.4875123413685 151.2798828125 392.4352140800122 153.844921875 392.4675518655769 157.4131496111043 392.49988965114164 160.98137734720862 392.3548014444004 163.73586988752646 392.2097132376591 166.4903624278443 391.2615858441932 169.96717410375513 390.3134584507272 173.44398577966595 389.37542905240207 175.54488315343875 388.437399654077 177.64578052721154 387.19795522681625 179.8804837072267 385.95851079955554 182.11518688724186 384.658726031751 184.2290519667792 383.3589412639464 186.3429170463165 382.12455843763814 188.21548746453135 380.89017561132994 190.0880578827462 379.6091426717419 191.77190323487685 378.3281097321538 193.45574858700752 376.8827214873853 195.03533920288993 375.43733324261683 196.6149298187723 373.8682053202249 198.06275347076703 372.299077397833 199.51057712276176 370.61700010833295 200.8445107199455 368.93492281883283 202.17844431712928 367.2546192800014 203.41565530179773 365.57431574117004 204.65286628646618 363.9082196607342 205.7927179047152 362.2421235802983 206.93256952296423 360.45320751963993 208.05250369338108 358.6642914589815 209.1724378637979 356.8852454816175 210.27159459686436 355.1061995042536 211.37075132993084 353.260877050633 212.44141129617367 351.41555459701243 213.5120712624165 349.4788121003412 214.55806184558395 347.54206960367003 215.60405242875143 345.587562935087 216.6212463340524 343.63305626650407 217.63844023935332 341.62220727452495 218.59711078792384 339.61135828254584 219.5557813364944 337.7295885225143 220.44812095454228 335.8478187624828 221.3404605725902 333.9603168804121 222.1789189340089 332.0728149983414 223.01737729542756 330.1276774887115 223.74208511272593 328.18253997908164 224.46679293002433 326.2651670626975 225.0673131347924 324.3477941463134 225.66783333956047 322.4014880095566 226.14449420056928 320.45518187279976 226.6211550615781 316.6907123980586 227.16169825819514 312.9262429233175 227.70224145481222 309.91734611552914 228.00654531989613 306.9084493077408 228.31084918498001 304.45917242013957 228.4777577803199 302.0098955325383 228.64466637565982 299.9443699127212 228.83857626115966 297.8788442929041 229.0324861466595 294.80007159956335 229.21507661314973 291.72129890622256 229.39766707964 291.01435532564483 229.28858787230672 290.3074117450671 229.17950866497344 289.6723069813829 228.85040467116877 289.0372022176987 228.5213006773641 288.54043190731716 228.00662917211446 288.04366159693564 227.49195766686478 287.7372377224883 226.8456048926298 287.43081384804105 226.19925211839484 287.34681907007064 225.48889138125753 287.2628242921003 224.77853064412025 287.41005288603276 224.07853690077593 287.55728147996524 223.37854315743164 287.9203185731513 222.76220593758882 288.28335566633734 222.14586871774603 288.82419117928794 221.67771869101952 289.3650266922385 221.20956866429302 290.0270350039809 220.93862126206068 290.6890433157233 220.66767385982834 291.402911981265 220.62229734662705 292.11678064680666 220.57692083342576 292.80776742842227 220.76186614216593 293.49875421003793 220.9468114509061 294.0945126092896 221.34271475894184 294.69027100854123 221.73861806697755 295.1284249637623 222.30402819344914 295.56657891898345 222.86943831992076 295.8012535954009 223.54515667533292 296.03592827181836 224.22087503074505 296.0425531688632 224.93615372491374 296.04917806590805 225.65143241908243 295.82705955511085 226.33138158391296 295.60494104431365 227.01133074874352 295.17733499238847 227.58475952718902 294.7497289404633 228.15818830563452 294.16140581392375 228.56505855322123 293.5730826873842 228.97192880080794 292.8856400728812 229.16964109521024 292.1981974583782 229.3673533896125 291.4836107791175 229.33520720141547 290.7690240998567 229.3030610132184 290.10211076978936 229.04442205681204 289.435197439722 228.78578310040564 288.8857834605541 228.32773094279975 288.3363694813862 227.86967878519386 287.96197864176787 227.2601716082038 287.5875878021495 226.6506644312137 287.42741892181834 225.9535177971646 287.26725004148716 225.25637116311552 287.3380728444943 224.54457650862116 287.4088956475015 223.8327818541268 287.7032949676767 223.1808642674083 287.99769428785197 222.52894668068978 288.4848464386591 222.00516210516608 288.9719985894662 221.48137752964237 289.60089861212 221.14056634863653 290.2297986347737 220.79975516763065 290.9346005308888 220.67760040175932 291.6394024270039 220.55544563588802 291.6387392603907 220.555451778124 291.63807609377744 220.55545792036 294.4239251004785 220.46988123416617 297.20977410717956 220.3843045479723 299.37609424429957 220.28191811108854 301.5424143814196 220.17953167420478 303.9060432848198 220.12364921136566 306.26967218822 220.0677667485265 309.18784355725614 219.86328199133885 312.1060149262923 219.65879723415122 315.3603485066349 219.26084265175638 318.61468208697755 218.86288806936156 322.0425624434698 217.95809073057427 325.47044279996214 217.053293391787 328.97954938287467 215.65303025457783 332.4886559657872 214.25276711736865 334.3542624925266 213.36901811391812 336.219869019266 212.4852691104676 338.0955395991008 211.57970540257128 339.97121017893556 210.67414169467492 341.8659591205029 209.66726418770082 343.7607080620702 208.6603866807267 345.5908261922232 207.65502357324704 347.4209443223762 206.64966046576734 349.1644667259891 205.6311977775463 350.907989129602 204.61273508932527 354.33121391940784 202.47067883994487 357.7544387092137 200.32862259056446 360.8792507665039 198.12541278575893 364.0040628237941 195.9222029809534 366.8074681049536 193.56742289498715 369.61087338611316 191.21264280902093 371.9445254331838 188.4870042139491 374.2781774802544 185.76136561887725 375.40905924531205 184.01759936171973 376.5399410103698 182.27383310456221 377.6873780751909 180.2862993891057 378.83481514001204 178.2987656736492 380.6204473815077 174.55688395205345 382.40607962300334 170.81500223045768 383.22739217704714 168.1350537961126 384.0487047310909 165.45510536176752 384.2861262899746 163.21818163423256 384.52354784885836 160.9812579066976 384.5558856344231 157.41308989084882 384.5882234199878 153.844921875 384.5359251586315 151.2798828125 384.48362689727526 148.71484375 384.5421551192101 148.2328359687688 384.600683341145 147.7508281875376 384.7728663439408 147.2968347211986 384.9450493467366 146.8428412548596 385.2208798461808 146.4432482250072 385.49671034562505 146.0436551951548 385.86015706013023 145.72168696745882 386.2236037746354 145.39971873976287 386.653543164078 145.17408812274465 387.0834825535206 144.9484575057264 387.5549265203855 144.8322781614482 388.02637048725046 144.71609881717 388.5119186860329 144.71612309457998 388.9974668848154 144.71614737198993 389.4688992313887 144.83237386008383 389.94033157796207 144.94860034817773 390.3702484021933 145.1742739580067 390.8001652264245 145.39994756783565 391.1635797422897 145.72195213859317 391.5269942581549 146.04395670935068 391.8027847969171 146.443577320255 392.07857533567926 146.84319793115932 392.2507129382676 147.2972086135286 392.4228505408559 147.7512192958979 392.4813305617201 148.23323292754125 392.53981058258427 148.7152465591846 392.5398105926545 148.7150451545923 Z"></path>
+              <path fill="#cb416b" d="M 307.7979556310073 198.2466513793997 Q 307.7979556310073 198.2466513793997 306.26578782591037 200.44765134298638 304.73362002081336 202.64865130657304 303.4683019972345 204.4775198487584 302.20298397365565 206.3063883909437 300.25709746497887 209.49432955041254 298.3112109563021 212.68227070988138 296.46322196191187 215.87390805476235 294.61523296752165 219.0655453996433 293.32063219461224 221.68492140601344 292.0260314217029 224.3042974123836 289.88907148489545 223.4614398595716 287.75211154808807 222.6185823067596 289.7720521109336 224.33247064555428 291.7919926737792 226.04635898434898 293.0379824913016 227.73313287176137 294.28397230882393 229.41990675917376 296.2380489995444 231.83395198523772 298.1921256902649 234.24799721130168 300.4011770542037 236.61296306453602 302.61022841814247 238.97792891777033 304.369864017914 240.62286842536824 306.1294996176855 242.26780793296615 307.6636642283188 243.44488952168626 309.1978288389521 244.62197111040635 309.75462387975324 245.09599803160262 310.31141892055444 245.57002495279892 310.68770349919214 246.1970274690292 311.06398807782983 246.82402998525944 311.22036509959116 247.53836076756178 311.3767421213525 248.25269154986412 311.29683887077954 248.97955997676647 311.2169356202066 249.7064284036688 310.90911798872673 250.36973115899985 310.60130035724694 251.03303391433093 310.09779693213216 251.5633230245126 309.5942935070173 252.09361213469427 308.94782122978904 252.4353661899078 308.3013489525607 252.77712024512132 307.5795936412969 252.89455750557158 306.8578383300331 253.01199476602181 306.1363679563479 252.8928195195392 305.4148975826627 252.77364427305656 304.76925028513074 252.430334199407 304.12360298759876 252.08702412575747 303.6213782087059 251.55552388027718 303.119153429813 251.02402363479686 302.8129342364838 250.35998143349002 302.5067150431546 249.69593923218318 302.4285626657646 248.96888046881674 302.3504102883747 248.24182170545032 302.5085073014669 247.52786962447365 302.6666043145592 246.81391754349698 303.0443979191293 246.18782311625336 303.4221915236995 245.56172868900975 303.98012662962117 245.08904416730445 304.5380617355429 244.61635964559918 305.2177223899456 244.34657522363136 305.8973830443483 244.07679080166358 306.62760859730304 244.03815297962944 307.3578341502578 243.9995151575953 308.0621697936094 244.19606932566126 308.76650543696104 244.39262349372717 309.3712070429241 244.80379037861138 309.97590864888707 245.21495726349556 310.4176637996914 245.79768758381314 310.85941895049575 246.38041790413072 311.0919757652402 247.0736996415186 311.32453257998463 247.76698137890645 311.3235422987764 248.49822775245147 311.32255201756817 249.2294741259965 311.0881183231112 249.92212344735822 310.85368462865415 250.61477276871994 310.4103527906425 251.19630447111012 309.96702095263083 251.7778361735003 309.3612079315326 252.18736373416925 308.7553949104344 252.59689129483817 308.05052948947764 252.79153707007904 307.34566406852093 252.98618284531992 306.6155458433463 252.9455673710835 305.88542761817166 252.9049518968471 305.2065001596874 252.63332762400742 304.5275727012031 252.36170335116773 304.5281531811255 252.3620536203807 304.5287336610479 252.36240388959365 302.9415361341059 251.188985341361 301.35433860716387 250.01556679312833 299.8553098200566 248.58721873398966 298.35628103294937 247.158870674851 296.1524985736424 244.9132658502196 293.9487161143354 242.66766102558825 291.50779949415016 239.94668008257634 289.06688287396486 237.22569913956443 287.43485293046 234.0977873208583 285.80282298695516 230.96987550215215 284.2958294496513 229.43150002302716 282.78883591234745 227.89312454390216 283.29452676210343 225.15010091986386 283.8002176118594 222.40707729582556 284.8930929217812 220.30080384969818 285.985968231703 218.19453040357084 287.80008502078863 214.99908859462414 289.6142018098743 211.80364678567744 291.57984448788255 208.55838683232201 293.5454871658908 205.3131268789666 294.65774085393 203.6004957088552 295.7699945419693 201.88786453874377 296.98088257307796 200.11169645983534 298.1917706041866 198.33552838092695 299.6109699865897 196.06006350076362 301.0301693689927 193.7845986206003 301.3463054874669 193.41209350706637 301.6624416059412 193.03958839353245 302.05853989223897 192.7535669736967 302.45463817853675 192.467545553861 302.9076773816479 192.28463140608295 303.36071658475896 192.10171725830492 303.8443660449126 192.0325413614476 304.32801550506616 191.9633654645903 304.814165492914 192.01194832502932 305.30031548076187 192.06053118546834 305.76071093616855 192.2240491650723 306.22110639157523 192.38756714467624 306.62898910904096 192.6565165707877 307.0368718265067 192.9254659968991 307.368535643328 193.28421551623592 307.70019946014935 193.6429650355727 307.93636805970954 194.07066410921522 308.1725366592697 194.49836318285776 308.2994839114659 194.97015392055056 308.42643116366213 195.4419446582434 308.4367788882322 195.93040656014477 308.4471266128022 196.41886846204613 308.34027339950785 196.89561209946731 308.2334201862135 197.37235573688847 308.0155763488319 197.8096727472228 307.7977325114503 198.24698975755712 307.79784407122884 198.24682056847843 Z"></path>
+            </g>
+          </svg>
+        </svg></div>
+      <div class="element" style="--x: 6.899285714285714; --y: 6.622857142857143; --w: 7.75; --h: 1; --r: 0; --s: 1; --wc: #cb416b;" data-uid="tbaqrpvlcu" data-type="windows">
+        <div class="innerWin">
+          <div class="winNav">
+            <p>about.txt</p>
+            <div class="winOptions"><span data-mat="minimise"></span><span data-mat="close"></span></div>
+          </div>
+          <div class="winContent">
+            <div class="innerWinContent">
+              <p>
+              </p><p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p>► Age: 16</p>
+              <p>► Youtuber<br></p>
+              <p>► Animator/Artist</p>
+              <p>► Music Creator</p>
+              <p>► Autistic</p>
+              <p>► Comedian</p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="element" style="--x: 6.079999302455358; --y: 5.288571428571428; --w: 1.4852091471354167; --h: 1.4000000000000001; --r: 0; --s: 0.8; --bos: 0.06; --boc: #cecdc6; --c: 0.4;" data-uid="tkjqghuqpk" data-type="image"><img src="https://files.strawcdn.com/straw/TDdowVYNwxoVZEAGvEFs.gif" draggable="false" loading="lazy"></div>
+      <div class="element" style="--x: 1.415; --y: 9.69892857142857; --w: 5.3; --h: 1; --r: 0; --s: 1; --wc: #cb416b;" data-uid="knogepison" data-type="windows">
+        <div class="innerWin">
+          <div class="winNav">
+            <p>Employee For.txt</p>
+            <div class="winOptions"><span data-mat="minimise"></span><span data-mat="close"></span></div>
+          </div>
+          <div class="winContent">
+            <div class="innerWinContent">
+              <p>
+              </p><p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p>► The Funkin' Muppet Show<br>► Ruby And Teardrop</p>
+              <p>► Bart Blast</p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 7.234285714285714; --y: 4.297142857142857; --w: 7.4; --h: 1; --r: 0; --s: 1; --ta: right;" data-uid="mtowsanzgc" data-type="text">
+        <div class="el_content">
+          <p>It's wrong how these "vegans" drink water. That's a fish's house you sick freak</p>
+        </div>
+      </div>
+      <div class="element" style="--x: 1.5566666666666666; --y: 14.76; --w: 7.1; --h: 1; --r: 0; --s: 1; --wc: #cb416b;" data-uid="bjhaunfquo" data-type="windows">
+        <div class="innerWin">
+          <div class="winNav">
+            <p>Fun Facts.txt</p>
+            <div class="winOptions"><span data-mat="minimise"></span><span data-mat="close"></span></div>
+          </div>
+          <div class="winContent">
+            <div class="innerWinContent">
+              <p>
+              </p><p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p>► Food</p>
+              <p>► Video Games</p>
+              <p>► Music</p>
+              <p>► Art</p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="element" style="--x: 12.295; --y: 10.986428571428572; --w: 2; --h: 2; --r: 0; --s: 1;" data-sound="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview211/v4/47/23/b1/4723b185-2024-4c19-194e-2c20d4ae96e0/mzaf_16491799506678093456.plus.aac.p.m4a" data-uid="ahrrftgvrk" data-type="spotify">
+        <div class="innerSpotify">
+          <div class="imgWrap"><i class="fas fa-play"></i><img src="https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/7c/04/bf/7c04bfc6-be8c-661a-3306-b97fc2c4999b/859705593825.jpg/200x200bb.jpg"></div>
+          <h5>Mice on Venus</h5>
+          <p><i class="fab fa-spotify"></i>C418</p>
+        </div>
+      </div>
+      
+      
+      <div class="element" data-image="contain" style="--x: 7.44; --y: 13.84; --w: 1.04; --h: 0.88; --r: 0; --s: 1;" data-uid="umvvwfwaiu" data-type="image"><img src="https://files.strawcdn.com/straw/YGHsLjZpDyzJvhwXbUsC.png" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 1.2716666666666667; --y: 12.466666666666667; --w: 2.3016666666666667; --h: 1.48; --r: 0; --s: 1;" data-uid="munjikzicq" data-type="image"><img src="https://files.strawcdn.com/straw/boaloJLGEkWSpTULWFYP.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 5.28; --y: 7.013333333333334; --w: 2.8266666666666667; --h: 3.3066666666666666; --r: 0; --s: 1;" data-uid="cieadmrivn" data-type="image"><img src="https://files.strawcdn.com/straw/KRJArvwAKXiLRXWPhTlx.png" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 4.493333333333333; --y: 2.8266666666666667; --w: 1.12; --h: 1.1333333333333333; --r: 0; --s: 1;" data-uid="dzjarxygaw" data-type="image"><img src="https://files.strawcdn.com/straw/mPjkyUdyaiUzVONPlOem.png" draggable="false" loading="lazy"></div>
+      <div class="element" style="--x: 9.32125; --y: 14.301666666666666; --w: 2.5020833333333328; --h: 2.4499999999999997; --r: 0; --s: 0.8; --bos: 0.06; --boc: #cecdc6; --c: 0.4;" data-uid="tkjqghuqpk" data-type="image"><img src="https://files.strawcdn.com/straw/CkIlgOTWuOYpevoRQmcV.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 9.013333333333334; --y: 13.693333333333333; --w: 5.1466666666666665; --h: 1; --r: 0; --s: 1;" data-uid="znxejsfejl" data-type="text">
+        <div class="el_content">
+          <p>Favorite Streamer</p>
+        </div>
+      </div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 8.68; --y: 16.346666666666668; --w: 5.1466666666666665; --h: 1; --r: 0; --s: 1;" data-uid="znxejsfejl" data-type="text">
+        <div class="el_content">
+          <p>Favorite Game</p>
+        </div>
+      </div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 11.36; --y: 14.52; --w: 2.3733333333333335; --h: 0.25333333333333335; --r: 0; --s: 0.75;" data-uid="znxejsfejl" data-type="text">
+        <div class="el_content">
+          <p>Azalea22</p>
+        </div>
+      </div>
+      <div class="element" style="--x: 9.254583333333333; --y: 16.928333333333335; --w: 2.5020833333333328; --h: 2.4499999999999997; --r: 0; --s: 0.8; --bos: 0.06; --boc: #cecdc6; --c: 0.4;" data-uid="tkjqghuqpk" data-type="image"><img src="https://files.strawcdn.com/straw/ShohwXSZMczGNIsaeYsv.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 3.285; --y: 11.893333333333333; --w: 3.515; --h: 2.56; --r: 0; --s: 1;" data-uid="munjikzicq" data-type="image"><img src="https://files.strawcdn.com/straw/RLmloXFIOdzQfTkipaiW.webp" draggable="false" loading="lazy"></div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 2.3866666666666667; --y: 21.466666666666665; --w: 5.1466666666666665; --h: 1; --r: 0; --s: 1;" data-uid="znxejsfejl" data-type="text">
+        <div class="el_content">
+          <p>Favorite TV Shows</p>
+        </div>
+      </div>
+      <div class="element" data-image="contain" style="--x: 2.28; --y: 22.64; --w: 1.6133333333333333; --h: 2.4; --r: 0; --s: 1;" data-uid="zafwnngozm" data-type="image"><img src="https://files.strawcdn.com/straw/HGQmlDDjIwxGMkLSRmRJ.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 3.973333333333333; --y: 22.653333333333332; --w: 1.6133333333333333; --h: 2.4; --r: 0; --s: 1;" data-uid="knnjurajus" data-type="image"><img src="https://files.strawcdn.com/straw/mFzziqSTwOYnjlfcicXE.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 5.693333333333333; --y: 22.64; --w: 1.6133333333333333; --h: 2.4; --r: 0; --s: 1;" data-uid="tgjlyptgqy" data-type="image"><img src="https://files.strawcdn.com/straw/uEOluluTEjrTyKCJdAkq.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 2.2933333333333334; --y: 25.106666666666666; --w: 1.6133333333333333; --h: 2.4; --r: 0; --s: 1;" data-uid="lvsddordvi" data-type="image"><img src="https://files.strawcdn.com/straw/pwXUWfvXZRZZSBAorKqq.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 5.693333333333333; --y: 25.066666666666666; --w: 1.6133333333333333; --h: 2.4; --r: 0; --s: 1;" data-uid="xxgqiyppym" data-type="image"><img src="https://files.strawcdn.com/straw/KPMUhdCSaPNDHQppvBSm.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 2.2933333333333334; --y: 27.533333333333335; --w: 1.6133333333333333; --h: 2.4; --r: 0; --s: 1;" data-uid="xpgbctpubs" data-type="image"><img src="https://files.strawcdn.com/straw/vqXyFOTVwdrOTGYaKCWi.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 3.986666666666667; --y: 25.093333333333334; --w: 1.6133333333333333; --h: 2.4; --r: 0; --s: 1;" data-uid="sgekoiikcu" data-type="image"><img src="https://files.strawcdn.com/straw/UmEVtuGpmrhBZHUrKLIJ.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 8.533333333333333; --y: 19.213333333333335; --w: 5.1466666666666665; --h: 1; --r: 0; --s: 1;" data-uid="znxejsfejl" data-type="text">
+        <div class="el_content">
+          <p>Favorite Artist</p>
+        </div>
+      </div>
+      <div class="element" style="--x: 9.145714285714286; --y: 19.973928571428573; --w: 2.5020833333333328; --h: 2.4499999999999997; --r: 0; --s: 0.8; --bos: 0.06; --boc: #cecdc6; --c: 0.4;" data-uid="tkjqghuqpk" data-type="image"><img src="https://files.strawcdn.com/straw/sNZtpRafdTauntmlDwEO.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 8.346666666666666; --y: 22.386666666666667; --w: 5.1466666666666665; --h: 1; --r: 0; --s: 1;" data-uid="znxejsfejl" data-type="text">
+        <div class="el_content">
+          <p>Games I play</p>
+        </div>
+      </div>
+      <div class="element" style="--x: 9.042857142857143; --y: 23.09392857142857; --w: 2.5020833333333328; --h: 2.4499999999999997; --r: 0; --s: 0.8; --bos: 0.06; --boc: #cecdc6; --c: 0.4;" data-uid="tkjqghuqpk" data-type="image"><img src="https://files.strawcdn.com/straw/INhUhpvxQERJWLekXOhs.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" style="--x: 11.116428571428571; --y: 23.142142857142858; --w: 3.65234375; --h: 2.3666666666666667; --r: 0; --s: 0.8; --bos: 0.06; --boc: #cecdc6; --c: 0.4;" data-uid="tkjqghuqpk" data-type="image"><img src="https://files.strawcdn.com/straw/reweOciiHNmtvUsgxxji.png" draggable="false" loading="lazy"></div>
+      <div class="element" style="--x: 1.49; --y: 18.16; --w: 7.1; --h: 1; --r: 0; --s: 1; --wc: #cb416b;" data-uid="bjhaunfquo" data-type="windows">
+        <div class="innerWin">
+          <div class="winNav">
+            <p>Fun Facts.txt</p>
+            <div class="winOptions"><span data-mat="minimise"></span><span data-mat="close"></span></div>
+          </div>
+          <div class="winContent">
+            <div class="innerWinContent">
+              <p>
+              </p><p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p>► Record Collector</p>
+              <p>► Allergic To Kiwi</p>
+              <p>► Nerd</p>
+              <p>► Outrovert</p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 9.510357142857142; --y: 25.4475; --w: 5.1466666666666665; --h: 1; --r: 0; --s: 1;" data-uid="znxejsfejl" data-type="text">
+        <div class="el_content">
+          <p>Favorite Movie Franchise</p>
+        </div>
+      </div>
+      <div class="element" style="--x: 8.909107142857144; --y: 26.130357142857143; --w: 2.95234375; --h: 4.066666666666666; --r: 0; --s: 0.8; --bos: 0.06; --boc: #cecdc6; --c: 0.4;" data-uid="tkjqghuqpk" data-type="image"><img src="https://files.strawcdn.com/straw/WlytCXUuCIElCgsAEkcy.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" style="--x: 1.4533333333333334; --y: 30.36; --w: 6.92; --h: 9.16; --r: 0; --s: 1; --bc: #3b9ab0;" data-uid="rmcwdzviqa" data-type="shape">
+        <div class="innerShape">
+          <!--?xml version="1.0" encoding="UTF-8"?--> <svg xmlns="http://www.w3.org/2000/svg" width="1200pt" height="1200pt" version="1.1" viewBox="0,172.5699462890625,1200,854.8499755859375" preserveAspectRatio="none" style="--ns: 0;">
+            <path d="m1200 172.57v854.85h-1200v-854.85zm-40.133 40.133h-1119.7v774.58h1119.7z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 2.2; --y: 30.64; --w: 5.1466666666666665; --h: 1; --r: 0; --s: 1;" data-uid="znxejsfejl" data-type="text">
+        <div class="el_content">
+          <p>Voice Impressions</p>
+        </div>
+      </div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 11.274285714285714; --y: 26.74642857142857; --w: 2.3733333333333335; --h: 0.25333333333333335; --r: 0; --s: 0.75;" data-uid="znxejsfejl" data-type="text">
+        <div class="el_content">
+          <p>Chucky</p>
+        </div>
+      </div>
+      <div class="element" data-image="contain" style="--x: 3.1333333333333333; --y: 35.08; --w: 1.56; --h: 2.466666666666667; --r: 0; --s: 1;" data-uid="hhiqtxckvn" data-type="image"><img src="https://files.strawcdn.com/straw/tzBYZQgpPeHFXcnvdnBd.webp" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 1.5733333333333333; --y: 34.906666666666666; --w: 1.7333333333333334; --h: 2.48; --r: 0; --s: 1;" data-uid="nltinntwhe" data-type="image"><img src="https://files.strawcdn.com/straw/XUfvAwjpMfIknAGGvFfv.webp" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 6.8133333333333335; --y: 37.13333333333333; --w: 1.24; --h: 2.04; --r: 0; --s: 1;" data-uid="hrunndmmaj" data-type="image"><img src="https://files.strawcdn.com/straw/ydjbWKCjoRPDVvhhlboE.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 3.1466666666666665; --y: 36.96; --w: 1.7333333333333334; --h: 2.6133333333333333; --r: 0; --s: 1;" data-uid="yxadvqcolf" data-type="image"><img src="https://files.strawcdn.com/straw/iZXacrpWBcuzYojMLeAR.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 5.1066666666666665; --y: 36.84; --w: 1.5333333333333334; --h: 2.2533333333333334; --r: 0; --s: 1;" data-uid="cloikfgwfb" data-type="image"><img src="https://files.strawcdn.com/straw/uIJudQzpANOPtwhGUfBU.png" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 1.8666666666666667; --y: 37.04; --w: 1.36; --h: 2.0533333333333332; --r: 0; --s: 1;" data-uid="ldhhhwylwv" data-type="image"><img src="https://files.strawcdn.com/straw/vBkpbxXlHxGEMZsrLLca.webp" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 5.306666666666667; --y: 35.49333333333333; --w: 1.12; --h: 1.5733333333333333; --r: 0; --s: 1;" data-uid="kkttlzqcpe" data-type="image"><img src="https://files.strawcdn.com/straw/XWNrUkEBmeQJHJTRgZaw.webp" draggable="false" loading="lazy"></div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 4.946666666666666; --y: 42.61333333333334; --w: 5.72; --h: 0.56; --r: 0; --s: 1;" data-uid="ebmribnygl" data-type="text">
+        <div class="el_content">
+          <p>Thanks for reading!!!</p>
+        </div>
+      </div>
+      <div class="element" data-image="contain" style="--x: 11.364583333333334; --y: 7.668333333333333; --w: 2.314166259765625; --h: 1.485833231608073; --r: 0; --s: 1.6;" data-uid="jpzotxflmy" data-type="image"><img src="https://files.strawcdn.com/straw/bkPPDHWqEYVoCchqpMql.png" draggable="false" loading="lazy"></div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 11.331666666666667; --y: 9.293333333333333; --w: 2.401666666666667; --h: 0.68; --r: 0; --s: 1; --ta: right;" data-uid="mtowsanzgc" data-type="text">
+        <div class="el_content">
+          <p>Owner Of</p>
+        </div>
+      </div>
+      <div class="element" data-image="contain" style="--x: 5.215; --y: 28.337142857142858; --w: 2.986666666666667; --h: 2.013333333333333; --r: 0; --s: 1;" data-uid="ndoiryfczy" data-type="image"><img src="https://files.strawcdn.com/straw/apLPXxNUFhaIvoEprBvZ.png" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 5.706666666666667; --y: 32.88; --w: 1.92; --h: 2.0533333333333332; --r: 0; --s: 1;" data-uid="rnwagonzhq" data-type="image"><img src="https://files.strawcdn.com/straw/HWLoFgMsZZflRWCEwENv.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 6.52; --y: 35.4; --w: 1.48; --h: 1.6666666666666667; --r: 0; --s: 1;" data-uid="hkisadxxxo" data-type="image"><img src="https://files.strawcdn.com/straw/mSfeoYkkhDDsjssroZpi.webp" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 6.125; --y: 12.653333333333334; --w: 1.5816666666666668; --h: 1.1066666666666667; --r: 0; --s: 1;" data-uid="munjikzicq" data-type="image"><img src="https://files.strawcdn.com/straw/rykLRXCfiivDJsuaBxWq.jpg" draggable="false" loading="lazy"></div>
+      <div class="element" data-image="contain" style="--x: 9.466666666666667; --y: 30.44; --w: 4.72; --h: 4.8133333333333335; --r: 0; --s: 1;" data-uid="ndhmrmxqhv" data-type="image"><img src="https://files.strawcdn.com/straw/StnbovABMsLHtXMEjlmR.webp" draggable="false" loading="lazy"></div>
+      <div class="element" style="--ts: 1.5; --f: Passion One; --co: #36a139; --x: 9.354285714285714; --y: 3.354285714285714; --w: 3.4457142857142857; --h: 0.9657142857142857; --r: 0; --s: 1; --ta: right;" data-uid="mtowsanzgc" data-type="text">
+        <div class="el_content">
+          <p>Certified Goober</p>
+        </div>
+      </div>
+    </div>
+    <div class="spotSearch"><i class="fas fa-times closer"></i>
+      <div class="innerSpotSearch">
+        <div class="searchWrap"><i class="fas fa-search"></i><input type="text" placeholder="Search for a song to recommend!"></div>
+        <div class="spotResults"></div>
+      </div>
+    </div>
+    <div class="colorPicker"><button class="closeColorPicker"><i class="fas fa-times"></i></button>
+      <div class="colorBox">
+        <div class="colorHighlight"></div>
+      </div>
+      <div class="hueSliderWrap"><input type="range" class="hueSlider" min="0" max="360" value="0"></div>
+    </div>
+  </div><a href="https://straw.page?ref=logo">
+    
+  </a>
+  <script>
+    const debounce = (func, wait) => {
+      let timeout;
+      return function executedFunction(...args) {
+        const later = () => {
+          clearTimeout(timeout);
+          func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+      };
+    };
+
+    function formatPaint() {
+      var maxWindow = parseFloat($(".first").css("--mw"));
+      var currentWindow = $(window).width();
+      if (currentWindow < maxWindow) {
+        var paintRatio = currentWindow / maxWindow;
+        $(".first svg,#drawing svg").each(function() {
+          var getOldS = parseFloat(1 - paintRatio);
+          $(this).css("--ns", getOldS);
+        });
+      } else {
+        $(".first svg,#drawing svg").css("--ns", 0);
+      }
+    }
+
+    function makeGrid() {
+      var getSize = parseFloat($(".content").outerWidth()) / 16 / 16;
+      $(".first").css("--g", getSize);
+      gridSize = parseFloat($(".grid").css("--g")) * 16;
+      gridDown = false;
+      gridSelected = false;
+      formatPaint();
+    }
+    makeGrid();
+    $(window).on("resize", function() {
+      makeGrid();
+    });
+    $('.spotSearch input').keyup(debounce(function() {
+      var getVal = $('.spotSearch input').val();
+      $.ajax({
+        url: "https://straw.page/power/spotify/search",
+        method: "GET",
+        data: {
+          q: getVal
+        },
+        success: function(data) {
+          $(".spotResults").empty();
+          for (var i = 0; i < data.length; i++) {
+            $(".spotResults").append(`<div class="spotItem"><img src="${data[i].album_image_url}"><div class="spotMeta" data-sound="${data[i].preview}" data-mid="${data[i].id}"><h5>${data[i].name}</h5><p><i class="fab fa-spotify"></i>${data[i].artist_list}</p></div></div>`);
+          }
+        }
+      });
+    }, 500));
+
+    function calculateEditorHeight() {
+      var getScroll = $(document).scrollTop();
+      $(".content").css("height", "");
+      var getHeight = $(".content")[0].scrollHeight;
+      var getWindowHeight = $(window).outerHeight(); /*$(".content").css("min-height",getHeight+((getWindowHeight/100)*75));*/
+      $(".content").css("height", getHeight + 80);
+      $(document).scrollTop(getScroll);
+    }
+    calculateEditorHeight();
+    $(window).on('load', function() {
+      calculateEditorHeight();
+      if (typeof umami !== 'undefined') {
+        ok = umami;
+        if (typeof ok.track == "undefined") {
+          ok.track = function() {}
+        }
+      }
+    });
+    $(document).on("mousemove touchmove", function(e) {
+      var currentY = e.originalEvent.touches ? e.originalEvent.touches[0].pageY : e.pageY;
+      var currentX = e.originalEvent.touches ? e.originalEvent.touches[0].pageX : e.pageX;
+      $(".eyeball span").each(function() {
+        var standardR = parseFloat($(this).closest(".element").css("--r"));
+        var eye = $(this);
+        var eyeX = (eye.offset().left) + (eye.width() / 2);
+        var eyeY = (eye.offset().top) + (eye.height() / 2);
+        rad = Math.atan2(currentX - eyeX, currentY - eyeY);
+        rot = (rad * (180 / Math.PI) * -1) + 180;
+        rot -= standardR;
+        eye.css({
+          '-webkit-transform': 'rotate(' + rot + 'deg)',
+          '-moz-transform': 'rotate(' + rot + 'deg)',
+          '-ms-transform': 'rotate(' + rot + 'deg)',
+          'transform': 'rotate(' + rot + 'deg)'
+        });
+      });
+    });
+    if ($(window).width() < 5) {
+      $(".branding").mouseover(function() {
+        $(".brandingContent").show(150)
+      }).mouseleave(function() {
+        $(".brandingContent").hide(150)
+      });
+    }
+    var findr = ['Instagram', 'Snapchat', 'FB'];
+
+    function containsCheck(target, pattern) {
+      var value = 0;
+      pattern.forEach(function(word) {
+        value = value + target.includes(word);
+      });
+      return (value === 1)
+    }
+    if (containsCheck(navigator.userAgent, findr)) {
+      $(".first").addClass("inst");
+    }
+  </script>
+  <script src="https://straw.page/c1d8cde9-d2dd-4d90-8f43-509b7a9ac5d9.js"></script>
+  <script>
+    let turnToken;
+    if ($(".element[data-type=gimmick-ama]").length > 0) {
+      turnstile.ready(function() {
+        turnstile.render($(".element[data-type=gimmick-ama]")[0], {
+          sitekey: "0x4AAAAAABVM5d6B7XsBIXP-",
+          callback: function(token) {
+            turnToken = token;
+          },
+        });
+      });
+    }
+    $(document).on("click", ".element[data-type=gimmick-ama] button", function() {
+      var parentCanv = $(this).closest(".element");
+      var question = $(parentCanv).find("input").val();
+      var prompt = $(parentCanv).find(".asker input").attr("placeholder");
+      var getID = $(parentCanv).data("uid");
+      var music = null;
+      if (question.length < 1) {
+        return;
+      }
+      if ($(parentCanv).data("mid")) {
+        music = $(parentCanv).data("mid");
+      }
+      $(parentCanv).addClass("doneArt");
+      $.ajax({
+        type: "POST",
+        url: "/gimmicks/ama",
+        data: {
+          q: question,
+          p: prompt,
+          i: getID,
+          m: music,
+          t: turnToken
+        },
+        success: function(response) {
+          try {
+            ok.track("sent ama!");
+          } catch (e) {}
+          $(parentCanv).find(".askerSend button").text("Sent! 😎");
+        }
+      });
+    });
+  </script>
+  <script>
+    var audioElements = {};
+    var spotEls = {};
+    $(document).on("click", ".element[data-sound]", function() {
+      if ($(this).data("type") == "spotify") {
+        $(this).toggleClass("playing");
+        if ($(this).hasClass("playing")) {
+          $(this).find(".imgWrap i").attr("class", "fas fa-pause");
+        } else {
+          $(this).find(".imgWrap i").attr("class", "fas fa-play");
+        }
+      }
+      var soundID = $(this).data("sound");
+      if (!audioElements[soundID]) {
+        audioElements[soundID] = new Audio(soundID);
+      }
+      var audio = audioElements[soundID];
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
+    let userAgent = navigator.userAgent;
+    if (userAgent.match(/firefox|fxios/i)) {
+      $("body").addClass("ff");
+    }
+
+    function isTouchDevice() {
+      return (('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxTouchPoints > 0));
+    }
+
+    function startMajorityVoteTalk(closestEl = null) {
+      var targetElements = closestEl ? $(closestEl).find(".activeTalk") : $(".activeTalk");
+      targetElements.each(function() {
+        var talkCtx = this;
+        var getText = $(this).data("talk").trim();
+        $(this).text("");
+        $(this).closest(".element").addClass("disableTmp");
+        for (let i = 0; i < getText.length; i++) {
+          setTimeout(function() {
+            if ($(talkCtx).text().length === i) {
+              $(talkCtx).append(getText[i]);
+            }
+            if (i === getText.length - 1) {
+              $(talkCtx).closest(".element").removeClass("disableTmp");
+            }
+          }, 20 * i);
+        }
+      });
+    }
+    $(".element[data-type=majorityvote").each(function() {
+      $(this).find(".innerTalking p").eq(0).addClass("activeTalk");
+      startMajorityVoteTalk();
+    });
+    if ($(".element[data-type=friends").length > 0) {
+      $.ajax({
+        url: "/get/following",
+        method: "GET",
+        success: function(data) {
+          $(".innerFriendsList").empty();
+          $(".innerFriendsList").each(function() {
+            for (var i = 0; i < data.sites.length; i++) {
+              $(this).append(`<div class="followingDon" data-site="${data.sites[i].site}"><a href="https://${data.sites[i].site}.straw.page"><div class="innerFollowingDon"><img src="${data.sites[i].pic}" />${data.sites[i].site.length > 7 ? '<div class="marquee" data-fun-text="'+data.sites[i].site+'"></div>' : '<p>'+data.sites[i].site+'</p>'}</div></a></div>`);
+            }
+          });
+        }
+      });
+    }
+    $(document).on("click", ".innerTalking", function() {
+      var ctxTalk = $(this).find(".activeTalk");
+      var ctxScene = $(this).closest(".scene");
+      var closestEl = $(this).closest(".element");
+      if ($(ctxTalk).next("p").length > 0) {
+        $(ctxTalk).empty();
+        $(ctxTalk).removeClass("activeTalk");
+        $(ctxTalk).next("p").addClass("activeTalk");
+        startMajorityVoteTalk(closestEl);
+      } else {
+        if ($(ctxScene).next(".scene").length > 0) {
+          $(ctxScene).next(".scene").addClass("active");
+          $(ctxScene).find(".activeTalk").removeClass("activeTalk");
+          $(ctxScene).removeClass("active");
+          $(ctxScene).next(".scene").find(".innerTalking p").eq(0).addClass("activeTalk");
+          startMajorityVoteTalk(closestEl);
+        } else {
+          $(".activeTalk").removeClass("activeTalk");
+          $(this).closest(".element").find(".active").removeClass("active");
+          $(this).closest(".element").find(".scene").eq(0).addClass("active");
+          $(this).closest(".element").find(".scene.active .innerTalking p").eq(0).addClass("activeTalk");
+          startMajorityVoteTalk(closestEl);
+        }
+      }
+    });
+    var amaCtx;
+    $(document).on("click", ".spotItem", function() {
+      $(amaCtx).find("img").remove();
+      $(amaCtx).find(".askExtra").append(`<img src="${$(this).find("img").attr("src")}">`);
+      $(amaCtx).data("song", $(this).find("h5").text());
+      $(amaCtx).data("artist", $(this).find("p").text());
+      $(amaCtx).data("sound", $(this).find(".spotMeta").attr("data-sound"));
+      $(amaCtx).data("mid", $(this).find(".spotMeta").attr("data-mid"));
+      $(".spotSearch").removeClass("bringUp");
+    });
+    $(document).on("click", ".askExtra", function() {
+      amaCtx = $(this).closest(".element");
+      $(".spotSearch").addClass("bringUp");
+    });
+    $(document).on("click", ".spotSearch .closer", function() {
+      $(".spotSearch").removeClass("bringUp");
+    });
+    $(document).on("click", ".element[data-scrollto]", function(e) {
+      e.stopImmediatePropagation();
+      var getScrollID = $(this).data("scrollto").trim();
+      $('html, body').animate({
+        scrollTop: $(`.element[data-uid=${getScrollID}]`).offset().top
+      }, 400);
+    });
+
+    function convertRemToPixels(rem) {
+      return rem * parseFloat(getComputedStyle($(".content")[0]).fontSize);
+    }
+
+    function calculateH(desiredHeight) {
+      const remInPixels = convertRemToPixels(1);
+      const multiplier = 2.34375;
+      const baseHeight = remInPixels * multiplier;
+      const h = desiredHeight / baseHeight;
+      return h;
+    }
+    $(window).on("load", function() {
+      $(".element[data-type=blogcontent]").each(function() {
+        var getBound = $(this)[0].getBoundingClientRect();
+        var oldH = parseFloat($(this).css("--h"));
+        var oldY = parseFloat($(this).css("--y"));
+        var diffH = calculateH(getBound.height) - oldH;
+        $(".element").not(this).each(function() {
+          var ctxBound = $(this)[0].getBoundingClientRect();
+          if (ctxBound.left < getBound.right && ctxBound.right > getBound.left) {
+            var ctxY = parseFloat($(this).css("--y"));
+            if (ctxY >= oldY + oldH) {
+              $(this).css("--y", ctxY + diffH);
+            }
+          }
+        });
+      });
+      calculateEditorHeight();
+    });
+    $(document).on("click", "a", function() {
+      if ($(this).find(".element[data-type=button2]").length > 0) {
+        var getLinkText = $(this).text().trim();
+        ok.track("clicked: " + getLinkText);
+      }
+    });
+
+    function findExtraInfo(uid) {
+      for (var i = 0; i < extraInfo.length; i++) {
+        if (extraInfo[i].uid == uid) {
+          return extraInfo[i];
+        }
+      }
+      return false;
+    }
+    var extraInfo = [];
+    $(document).on("click", ".memeControls i.fa-plus", function() {
+      $(this).closest(".element").find(".memeGallery").fadeIn(100);
+    });
+    $('.memeGallery input').keyup(function() {
+      var self = this;
+      debounce(function() {
+        var getVal = $(self).val();
+        $.ajax({
+          url: "/search/stickers",
+          method: "POST",
+          data: {
+            query: getVal
+          },
+          success: function(data) {
+            $(self).closest(".element").find(".memeGallResults").empty();
+            for (var i = 0; i < data.gifs.length; i++) {
+              $(self).closest(".element").find(".memeGallResults").append(`<img src="${data.gifs[i]}">`);
+            }
+          }
+        });
+      }, 300)();
+    });
+    $(document).on("click", ".memeControls i.fa-plus,.memeInp i", function() {
+      $(this).closest(".element").find(".memeGallery").toggleClass("showMemeGallery");
+    });
+    $('.element[data-type=memegen]').each(function() {
+      const $element = $(this);
+      const $container = $element.find('.officialMemeContainer');
+      const uniqueID = 'container-' + Math.random().toString(36).substr(2, 9);
+      $container.attr('id', uniqueID);
+      const stage = new Konva.Stage({
+        container: uniqueID,
+        width: $container.outerWidth(),
+        height: $container.outerHeight()
+      });
+      const layer = new Konva.Layer();
+      stage.add(layer);
+      const bgImageSrc = $(this).data("img");;
+      const bgImage = new Image();
+      bgImage.crossOrigin = "anonymous";
+      bgImage.src = bgImageSrc;
+      let backgroundImage;
+      bgImage.onload = function() {
+        const canvasWidth = stage.width();
+        const canvasHeight = stage.height();
+        const imgWidth = bgImage.width;
+        const imgHeight = bgImage.height;
+        const scale = Math.max(canvasWidth / imgWidth, canvasHeight / imgHeight);
+        const scaledWidth = imgWidth * scale;
+        const scaledHeight = imgHeight * scale;
+        const x = (canvasWidth - scaledWidth) / 2;
+        const y = (canvasHeight - scaledHeight) / 2;
+        backgroundImage = new Konva.Image({
+          image: bgImage,
+          x: x,
+          y: y,
+          width: scaledWidth,
+          height: scaledHeight,
+          listening: false,
+        });
+        layer.add(backgroundImage);
+        layer.moveToBottom();
+        layer.draw();
+      };
+      $element.on('click', '.memeGallResults img', function() {
+        const img = new Image();
+        img.crossOrigin = "anonymous";
+        img.src = $(this).attr('src');
+        $(this).closest(".memeGallery").removeClass("showMemeGallery");
+        img.onload = function() {
+          const maxSize = 100;
+          let scaleFactor = 1;
+          if (img.width > img.height) {
+            scaleFactor = maxSize / img.width;
+          } else {
+            scaleFactor = maxSize / img.height;
+          }
+          const scaledWidth = img.width * scaleFactor;
+          const scaledHeight = img.height * scaleFactor;
+          const sticker = new Konva.Image({
+            image: img,
+            x: (stage.width() - scaledWidth) / 2,
+            y: (stage.height() - scaledHeight) / 2,
+            width: scaledWidth,
+            height: scaledHeight,
+            draggable: true,
+          });
+          layer.add(sticker);
+          layer.draw();
+          const tr = new Konva.Transformer({
+            nodes: [sticker],
+            rotateEnabled: true,
+            enabledAnchors: ['top-left', 'top-right', 'bottom-left', 'bottom-right', 'middle-left', 'middle-right', 'top-center', 'bottom-center', ],
+            flipEnabled: true,
+            stroke: 'black',
+            strokeWidth: 2,
+            anchorStroke: 'black',
+            anchorFill: 'black',
+            anchorSize: 6,
+            borderStroke: 'black',
+            borderStrokeWidth: 1,
+          });
+          layer.add(tr);
+          layer.draw();
+          const $stickerButtons = $element.find('.stickerButtons');
+          sticker.on('click', function() {
+            tr.nodes([sticker]);
+            layer.draw();
+            $stickerButtons.addClass("showMemeGallery");
+          });
+          stage.on('click', function(e) {
+            if (e.target === stage) {
+              tr.nodes([]);
+              layer.draw();
+              $stickerButtons.removeClass("showMemeGallery");
+            }
+          });
+          $stickerButtons.find('.fa-trash').on('click', function() {
+            sticker.destroy();
+            tr.destroy();
+            layer.draw();
+            $stickerButtons.removeClass("showMemeGallery");
+          });
+          $stickerButtons.addClass("showMemeGallery");
+        }
+      });
+      $element.find('.downloadMeme').on('click', function() {
+        const transformers = stage.find('Transformer');
+        transformers.forEach(tr => tr.hide());
+        layer.draw();
+        const dataURL = stage.toDataURL({
+          pixelRatio: 3
+        });
+        transformers.forEach(tr => tr.show());
+        layer.draw();
+        const link = document.createElement('a');
+        link.href = dataURL;
+        link.download = 'meme.png';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+      $element.find('.resetMeme').on('click', function() {
+        layer.destroyChildren();
+        layer.add(backgroundImage);
+        layer.draw();
+      });
+      $element.find('.changeBackground').on('click', function() {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.onchange = function(event) {
+          const file = event.target.files[0];
+          const reader = new FileReader();
+          reader.onload = function(e) {
+            const newBgImage = new Image();
+            newBgImage.src = e.target.result;
+            newBgImage.crossOrigin = "anonymous";
+            newBgImage.onload = function() {
+              const canvasWidth = stage.width();
+              const canvasHeight = stage.height();
+              const imgWidth = newBgImage.width;
+              const imgHeight = newBgImage.height;
+              const scale = Math.max(canvasWidth / imgWidth, canvasHeight / imgHeight);
+              const scaledWidth = imgWidth * scale;
+              const scaledHeight = imgHeight * scale;
+              const x = (canvasWidth - scaledWidth) / 2;
+              const y = (canvasHeight - scaledHeight) / 2;
+              backgroundImage.image(newBgImage);
+              backgroundImage.width(scaledWidth);
+              backgroundImage.height(scaledHeight);
+              backgroundImage.position({
+                x: x,
+                y: y
+              });
+              layer.draw();
+            };
+          };
+          reader.readAsDataURL(file);
+        };
+        input.click();
+      });
+    });
+  </script>
+  <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon="{&quot;version&quot;:&quot;2024.11.0&quot;,&quot;token&quot;:&quot;805e338eb19646c090f85327f7a84328&quot;,&quot;r&quot;:1,&quot;server_timing&quot;:{&quot;name&quot;:{&quot;cfCacheStatus&quot;:true,&quot;cfEdge&quot;:true,&quot;cfExtPri&quot;:true,&quot;cfL4&quot;:true,&quot;cfOrigin&quot;:true,&quot;cfSpeedBrain&quot;:true},&quot;location_startswith&quot;:null}}" crossorigin="anonymous"></script>
+
+
+</body></html>
