@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Buffalo</title>
+</head>
+<body>
+
+<h1>Buffalo</h1>
+
+<div id="output">Loading buffalo...</div>
+
+<script src="https://gnrcounter.com/counter.php?accId=c62851cde8cb9d2f97605f39156ea883"></script>
+
+<script>
+function extractCount() {
+  const els = document.querySelectorAll(".gnrCounter-boldx");
+
+  if (!els.length) return null;
+
+  const last = els[els.length - 1].textContent;
+  const count = parseInt(last);
+
+  return isNaN(count) ? null : count;
+}
+
+function render() {
+  const count = extractCount();
+
+  if (!count) {
+    setTimeout(render, 500);
+    return;
+  }
+
+  document.getElementById("output").textContent =
+    "buffalo ".repeat(count);
+}
+
+render();
+</script>
+
+</body>
+</html>
